@@ -94,60 +94,16 @@ bool isEmpty(const DFA& other) {
     return true;
 }
 
-//Ultima sansa. Fac reuniune si apoi rez = Complementary(Union(Complementary(A), Complementary(B)))
-
 int main() {
 
     DFA firstDFA, secondDFA;
     in >> firstDFA >> secondDFA;
 
-    // DFA complA = Complementary(firstDFA);
-    // DFA complB = Complementary(secondDFA);
-    
-    // if(!isEmpty(Intersection(firstDFA, complB)) || !isEmpty(Intersection(secondDFA, complA))) {
-    //     cout << "NO\n";
-    // } else {
-    //     cout << "YES\n";
-    // }
-
-    cout << firstDFA << "\n" << secondDFA << "\n";
-
-    cout << Intersection(firstDFA, secondDFA) << '\n';
-
-    // DFA A = MakeComplete(firstDFA);
-    // DFA B = MakeComplete(secondDFA);
-
-    // DFA AA = Intersection(firstDFA, Complementary(B));
-    // DFA BB = Intersection(Complementary(A), secondDFA);
-
-    // if(!isEmpty(AA) || !isEmpty(BB)) {
-    //     cout << "YES\n";
-    // } else {
-    //     cout << "NO\n";
-    // }
-
-    // if(isEmpty(A) && isEmpty(B)) {
-    //     cout << "YES\n";
-    // } else {
-    //     cout << "NO\n";
-    // }
-
-    // DFA A = firstDFA.MakeComplete();
-    // DFA B = secondDFA.MakeComplete();    
-    
-    // // mai putin bun
-    // if(!isEmpty(Intersection(firstDFA, Complementary(secondDFA))) || !isEmpty(Intersection(Complementary(firstDFA), secondDFA))) {
-    //     cout << "Automatele nu accepta acelasi limbaj!\n";
-    // } else {
-    //     cout << "Automatele accepta acelasi limbaj!\n";
-    // }
-
-    // // bun
-    // if(isEmpty(Intersection(firstDFA, Complementary(secondDFA))) && isEmpty(Intersection(Complementary(firstDFA), secondDFA))) {
-    //     cout << "Automatele accepta acelasi limbaj!\n";
-    // } else {
-    //     cout << "Automatele nu accepta acelasi limbaj!\n";
-    // }
+    if(isEmpty(Intersection(firstDFA, Complementary(secondDFA))) && isEmpty(Intersection(Complementary(firstDFA), secondDFA))) {
+        cout << "Automatele accepta acelasi limbaj!\n";
+    } else {
+        cout << "Automatele nu accepta acelasi limbaj!\n";
+    }
 
     return 0;
 }
